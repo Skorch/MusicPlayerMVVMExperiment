@@ -13,3 +13,5 @@ The other experiment was to explore the capabilities of Reactive Cocoa and the c
 MVVM pattern within the MVC world of Cocoa.  The idea is that the rules for composing and mapping
 the model data is abstracted into a ViewModel which leaves the view/controller free to focus
 purely on the UI/UX.
+
+Ios interactive transitions are encapsulated for reusability between any two view controllers.
