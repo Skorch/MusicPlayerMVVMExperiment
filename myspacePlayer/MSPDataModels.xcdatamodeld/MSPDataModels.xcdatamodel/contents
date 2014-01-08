@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3400" systemVersion="13A603" minimumToolsVersion="Xcode 4.5" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Artist" representedClassName="Artist" syncable="YES">
+        <attribute name="artistName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="entityKey" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="GenreQueue" representedClassName="MSPGenreQueue" syncable="YES">
+        <attribute name="queueName" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="mediaItems" toMany="YES" deletionRule="Nullify" destinationEntity="MediaItem" inverseName="genreQueues" inverseEntity="MediaItem" syncable="YES"/>
+    </entity>
+    <entity name="MediaItem" representedClassName="MSPMediaItem" syncable="YES">
+        <attribute name="albumTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="artistName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="chartPosition" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="genreId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlToFile" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlToThumbnail" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="genreQueues" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GenreQueue" inverseName="mediaItems" inverseEntity="GenreQueue" syncable="YES"/>
+    </entity>
+    <entity name="MusicAlbum" representedClassName="MusicAlbum" syncable="YES">
+        <attribute name="entityKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Playlist" representedClassName="Playlist" syncable="YES">
+        <attribute name="entityKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="extendedDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ownerEntityKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlToCoverImage" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="playlistSummary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlaylistSummary" syncable="YES"/>
+        <relationship name="songs" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Song" syncable="YES"/>
+    </entity>
+    <entity name="PlaylistSummary" representedClassName="PlaylistSummary" syncable="YES">
+        <attribute name="albumCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="photoCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="playlistEntityKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="songCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="videoCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="statistics" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Statistics" syncable="YES"/>
+    </entity>
+    <entity name="Song" representedClassName="Song" syncable="YES">
+        <attribute name="entityKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="releaseEntityKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="songSubTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="songTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlToStream" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlToThumbnail" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="album" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MusicAlbum" syncable="YES"/>
+        <relationship name="artist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Artist" syncable="YES"/>
+    </entity>
+    <entity name="Statistics" representedClassName="Statistics" syncable="YES">
+        <attribute name="commentCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="connectCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="likeCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="shareCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="GenreQueue" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="MediaItem" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Song" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Playlist" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="PlaylistSummary" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Statistics" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Artist" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="MusicAlbum" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>
